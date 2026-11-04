@@ -13,7 +13,6 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-    
         }
         .container {
             text-align: center;
@@ -76,7 +75,8 @@
             z-index: 10;
             transition: all 0.6s ease;
             text-align: center;
-        
+            max-height: 75vh;     /* Altura máxima para que no se salga de la pantalla */
+            overflow-y: auto;     /* Barra elegante para deslizar el texto largo */
         }
         .letter img {
             width: 100%;
@@ -94,6 +94,7 @@
             color: #444;
             font-size: 14px;
             line-height: 1.5;
+            white-space: pre-line; /* Respeta los saltos de línea del texto */
         }
         /* Clase cuando se abre el sobre */
         .open .envelope::before {
@@ -104,7 +105,7 @@
             opacity: 0;
         }
         .open .letter {
-            transform: translate(-50%, -105%) scale(1);
+            transform: translate(-50%, -100%) scale(1);
         }
     </style>
 </head>
