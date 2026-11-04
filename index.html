@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una carta especial para ti 💌</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+        /* Estilo del sobre */
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background-color: #e91e63;
+            position: relative;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.5s ease;
+        }
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+        /* Tapa del sobre */
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 110px solid #c2185b;
+            transform-origin: top;
+            transition: transform 0.6s ease;
+            z-index: 3;
+        }
+        /* Corazón decorativo */
+        .heart-seal {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 35px;
+            z-index: 4;
+            transition: opacity 0.3s;
+        }
+        .instruction {
+            margin-top: 20px;
+            color: #880e4f;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        /* Estilo de la carta oculta */
+        .letter {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 320px;
+            background: white;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            z-index: 10;
+            transition: all 0.6s ease;
+            text-align: center;
+        }
+        .letter img {
+            width: 100%;
+            border-radius: 8px;
+            max-height: 180px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .letter h2 {
+            color: #d81b60;
+            margin-top: 0;
+            font-size: 22px;
+        }
+        .letter p {
+            color: #444;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        /* Clase cuando se abre el sobre */
+        .open .envelope::before {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+        .open .heart-seal {
+            opacity: 0;
+        }
+        .open .letter {
+            transform: translate(-50%, -120%) scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="cardContainer" onclick="openEnvelope()">
+        <div class="envelope">
+            <div class="heart-seal">❤️</div>
+        </div>
+        <div class="instruction">Toca el sobre para abrirlo 💌</div>
+
+        <!-- Contenido de la carta -->
+        <div class="letter">
+            <img src="URL_DE_LA_FOTO_AQUI" alt="Foto especial">
+            <h2>¡Para la persona más especial!</h2>
+            <p>Aquí puedes colocar el texto personalizado que te pida tu cliente: un mensaje de amor, aniversario o felicitación inolvidable.</p>
+        </div>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            document.getElementById('cardContainer').classList.add('open');
+        }
+    </script>
+</body>
+</html>
