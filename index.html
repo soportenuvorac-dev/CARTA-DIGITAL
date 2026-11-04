@@ -79,11 +79,12 @@
             overflow-y: auto;     /* Barra elegante para deslizar el texto */
         }
         .letter img {
-            width: 100%;
+            max-width: 100%;
+            max-height: 220px;
+            display: block;
+            margin: 0 auto 15px auto;
             border-radius: 8px;
-            height: auto;
-            object-fit: contain;  /* Muestra la foto completa sin recortarla */
-            margin-bottom: 10px;
+            object-fit: contain;  /* Muestra la foto completa sin recortar ni deformar */
         }
         .letter h2 {
             color: #d81b60;
@@ -105,7 +106,7 @@
             opacity: 0;
         }
         .open .letter {
-            transform: translate(-50%, -50%) scale(1); /* Centrado perfecto sin cortarse arriba */
+            transform: translate(-50%, -50%) scale(1); /* Centrado perfecto */
         }
     </style>
 </head>
